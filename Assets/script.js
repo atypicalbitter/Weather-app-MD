@@ -59,3 +59,12 @@ function getWeather(city) {
 
         searchForm.on('submit', function (event) {
             event.preventDefault();
+
+            const cityName = searchInput.val().trim();
+  
+            if (cityName !== '') {
+              getWeather(cityName);
+              searchInput.val('');
+              saveToHistory(cityName);
+            }
+          });
