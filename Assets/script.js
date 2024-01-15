@@ -34,3 +34,15 @@ function getWeather(city) {
 
       function getForecast(lat, lon) {
         const queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=df8762169cc4e5c500ae5bd0e9fc3a16`;
+
+        $.ajax({
+            url: queryURL,
+            method: 'GET',
+        }).then(function (response) {
+            const forecastData = response.list; 
+
+            let forecastHTML = '<h2>5-Day Forecast:</h2><div class="row">';
+  
+            for (let i = 0; i < forecastData.length; i += 8) {
+                const forecastDate = dayjs.unix(forecastData[i].dt).format('YYYY-MM-DD');
+                const iconURL = `https://openweathermap.org/img/w/${forecastData[i].weather[0].icon}.png`;
