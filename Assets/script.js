@@ -68,3 +68,9 @@ function getWeather(city) {
               saveToHistory(cityName);
             }
           });
+
+          function saveToHistory(city) {
+            const historyItem = $(`<a href="#" class="list-group-item list-group-item-action">${city}</a>`);
+            historyList.prepend(historyItem);
+
+            localStorage.setItem('lastCity', city);
