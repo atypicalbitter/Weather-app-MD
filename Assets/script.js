@@ -31,3 +31,6 @@ function getWeather(city) {
           getForecast(lat, lon);
         });
       }
+
+      function getForecast(lat, lon) {
+        const queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=df8762169cc4e5c500ae5bd0e9fc3a16`;
