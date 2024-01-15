@@ -56,3 +56,6 @@ function getWeather(city) {
                 </div>
             `;
         }
+
+        searchForm.on('submit', function (event) {
+            event.preventDefault();
