@@ -46,3 +46,13 @@ function getWeather(city) {
             for (let i = 0; i < forecastData.length; i += 8) {
                 const forecastDate = dayjs.unix(forecastData[i].dt).format('YYYY-MM-DD');
                 const iconURL = `https://openweathermap.org/img/w/${forecastData[i].weather[0].icon}.png`;
+
+                forecastHTML += `
+                <div class="col-md-2">
+                    <p>${forecastDate}</p>
+                    <img src="${iconURL}" alt="Weather Icon">
+                    <p>Temp: ${forecastData[i].main.temp} °C</p>
+                    <p>Humidity: ${forecastData[i].main.humidity}%</p>
+                </div>
+            `;
+        }
