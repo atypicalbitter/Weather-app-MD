@@ -74,3 +74,11 @@ function getWeather(city) {
             historyList.prepend(historyItem);
 
             localStorage.setItem('lastCity', city);
+
+            historyItem.on('click', function () {
+                const selectedCity = $(this).text();
+                getWeather(selectedCity);
+             });
+          }
+          
+         });
